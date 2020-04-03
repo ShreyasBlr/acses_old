@@ -6,16 +6,18 @@ sender_email = "projectacses@gmail.com"  # Enter your address
 password = "acses@1920"
 
 replyData = intent_classification.mailInfo()
-receiver_email = replyData['sender_address']  # Enter receiver address
+receiver_email = replyData['reciver_address']  # Enter receiver address
 intent = replyData['intent']
+confidence = replyData['confidence']
 
-if intent == 'password_recovery':
-    message = """\
-Subject: Response from Acses
+if confidence > 0.5:
+    if intent == 'password_recovery':
+        message = """\
+        Subject: Response from Acses
 
-Follow the steps in the link to reset your password. \n www.google.com"""
+        Follow the steps in the link to reset your password. \n www.google.com"""
 else:
-    message = "This is the default response"
+    print("Forward email to CSR")
 
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:

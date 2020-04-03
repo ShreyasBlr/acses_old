@@ -26,7 +26,7 @@ def get_body(msg):
 
 body = get_body(message)
 
+msg_body = body.decode('utf-8')
 # print("From:", message['From'])
 # print("Subject:", message['Subject'])
 # print("Body:", msg_body)
-msg_body = body.decode('utf-8')
