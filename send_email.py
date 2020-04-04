@@ -12,8 +12,59 @@ def send_mail(sender_id, sender_pwd, reciver_id, intent, confidence):
         if intent == 'password_recovery':
             message = """\
             Subject: Response from Acses
-
-            Follow the steps in the link to reset your password. \n www.google.com"""
+            Password recovery response"""
+        elif intent == 'order_status':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'cancel_order':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'create_account':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'delete_account':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'change_account':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'delivery_options':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'get_refund':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'payment_issue':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'payment_options':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'request_csr':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'review':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'shipping_address':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
+        elif intent == 'update_profile':
+            message = """\
+                Subject: Response from Acses
+                Order Status response"""
         context = ssl.create_default_context()
         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
             server.login(sender_email, password)
