@@ -11,13 +11,13 @@ def get_mail(user, pwd):
     con.login(user,pwd)
 
     con.select("inbox")
-    result,data = con.search(None, "Unseen")
+    data = con.search(None, "Unseen")[1]
 
     inbox_item_list = data[0].split()
     if inbox_item_list:
         # latest_mail = inbox_item_list[-1]
         for mail in inbox_item_list:
-            status,email_data = con.fetch(mail,'(RFC822)')
+            email_data = con.fetch(mail,'(RFC822)')[1]
 
             raw_email = email_data[0][1].decode("utf-8")
             message = email.message_from_string(raw_email)
